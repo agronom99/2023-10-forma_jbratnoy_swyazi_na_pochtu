@@ -23,6 +23,19 @@
     $mail->Subject = $theme;
     $mail->Body = $body;
 
-    $mail->send();
+    /* Проверяем отправлено ли сообщение */
+if (!$mail->send()) {
+    $message = "Ошибка отправки";
+  } else {
+    $message = "Данные отправлены!";
+  }
+  
+  /* Возвращаем ответ */	
+  $response = ["message" => $message];
+  
+  /* Ответ в формате JSON */
+  header('Content-type: application/json');
+  echo json_encode($response);
 
+  
 ?>
