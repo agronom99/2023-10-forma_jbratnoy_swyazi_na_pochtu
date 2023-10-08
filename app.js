@@ -48,6 +48,17 @@ function formCheck(e) {
   }
   formSubmit();
 }
-function formSubmit() {
-  console.log("Перевірка пройшла, дані відправляються...");
+async function formSubmit() {
+  const data = serializeForm(form);
+  const response = await sendData(data);
+  // console.log("Перевірка пройшла, дані відправляються...");
+}
+function serializeForm(formNode) {
+  return new FormData(form);
+}
+async function sendData(data) {
+  return await fetch("send_mail.php", {
+    method: "POST",
+    body: data,
+  });
 }
