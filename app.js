@@ -32,22 +32,24 @@ function inputCheck(el) {
   }
 }
 
+// Здесь проверяем, можно ли отправить форму
 function formCheck(e) {
-  e.preventDefault();
-  const allValid = [];
+  e.preventDefault(); // блокируем input
+  const allValid = []; // создаем массив валидных значений
   validFormArr.forEach((el) => {
-    allValid.push(el.getAttribute("is-valid"));
+    allValid.push(el.getAttribute("is-valid")); // проверяем каждое поле
   });
   const isAllValid = allValid.reduce((acc, current) => {
+    // проверяем, чтобы все было правильно
     return acc && current;
   });
-
   if (!Boolean(Number(isAllValid))) {
-    alert("Заповніть поля правильно!");
+    alert("Заполните поля правильно!"); // если не правильно - сообщение пользователю
     return;
   }
-  formSubmit();
+  formSubmit(); // если правильно - отправляем данные
 }
+
 async function formSubmit() {
   const data = serializeForm(form); // получаем данные формы
   const response = await sendData(data); // отправляем данные на почту
