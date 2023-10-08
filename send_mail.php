@@ -14,7 +14,7 @@
     $phone = $_POST["phone"];
     $message = $_POST["message"];
 
-    $body = $name.''.$email.''.$phone.''.$message;
+    $body = $name.''.$email.''.$phone.''.$message.''.;
     $theme = "[Заявка з форми]";
 
     $mail->addAddress("agronom9913@gmail.com");
