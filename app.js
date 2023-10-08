@@ -11,7 +11,7 @@ formArr.forEach((el) => {
 });
 
 form.addEventListener("input", inputHandler);
-button.addEventListener("submit", formCheck);
+form.addEventListener("submit", formCheck);
 
 function inputHandler({ target }) {
   if (target.hasAttribute("data-reg")) {
