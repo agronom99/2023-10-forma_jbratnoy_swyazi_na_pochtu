@@ -19,7 +19,7 @@
 
     $mail->addAddress("agronom9913@gmail.com");
 
-    $mail->Subject = $Theme;
+    $mail->Subject = $theme;
     $mail->Body = $body;
 
     $mail->send();
